@@ -1,0 +1,34 @@
+.fullscreen.image-gallery-content .image-gallery-slide .image-gallery-image {
+  height: 100vh !important;
+  max-height: none;
+}
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  height: 49rem !important;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 70%;
+}
+.image-gallery-left-nav,
+.image-gallery-right-nav,
+.image-gallery-play-button,
+.image-gallery-fullscreen-button {
+  &:hover {
+    color: $green;
+  }
+}
+
+#galeria {
+  z-index: 0;
+  position: relative;
+
+  h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-left: 278px;
+    margin-top: 36px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+}

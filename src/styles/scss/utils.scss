@@ -1,0 +1,122 @@
+.gutters {
+  @media (max-width: $md) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  padding-left: 17.375rem;
+  padding-right: 17.375rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+}
+.col {
+  display: flex;
+  flex-direction: column;
+
+  &--reverse {
+    flex-direction: column-reverse;
+  }
+}
+.wrap {
+  flex-wrap: wrap;
+
+  &--reverse {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+.j {
+  &-sb {
+    justify-content: space-between;
+  }
+  &-sa {
+    justify-content: space-around;
+  }
+  &-center {
+    justify-content: center;
+  }
+  &-end {
+    justify-content: flex-end;
+  }
+}
+
+.a {
+  &-sb {
+    align-items: space-between;
+  }
+  &-sa {
+    align-items: space-around;
+  }
+  &-center {
+    align-items: center;
+  }
+  &-end {
+    align-items: flex-end;
+  }
+}
+
+.as {
+  &-end {
+    align-self: flex-end;
+  }
+  &-start {
+    align-items: flex-start;
+  }
+  &-center {
+    align-self: center;
+  }
+}
+
+.js {
+  &-end {
+    justify-self: flex-end;
+  }
+  &-start {
+    justify-items: flex-start;
+  }
+  &-center {
+    justify-self: center;
+  }
+}
+
+.text {
+  &--blue {
+    color: $blue;
+  }
+  &--white {
+    color: #fff;
+  }
+  &--orange {
+    color: $orange;
+  }
+}
+
+.md {
+  &--show {
+    display: none;
+
+    @media (max-width: $md) {
+      display: flex;
+    }
+  }
+
+  &--hide {
+    display: flex;
+
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+
+  &--col {
+    @media (max-width: $md) {
+      flex-direction: column;
+    }
+  }
+}

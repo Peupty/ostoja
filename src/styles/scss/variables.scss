@@ -1,0 +1,20 @@
+:root {
+  --green: #bedb39;
+  --green2: #bedb394d;
+  --green3: #1f8a70;
+  --blue: #004358;
+  --orange: #fd7400;
+  --orange2: #f18519;
+}
+
+$green: var(--green);
+$green2: var(--green2);
+$green3: var(--green3);
+$blue: var(--blue);
+$orange: var(--orange);
+$orange2: var(--orange2);
+
+$lg: 1600px;
+$md: 1200px;
+$sm: 750px;
+$xs: 450px;

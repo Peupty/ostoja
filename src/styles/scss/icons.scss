@@ -1,0 +1,44 @@
+#icons {
+  margin: 185px 0;
+  user-select: none;
+
+  .icons {
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+  }
+
+  picture {
+    margin-bottom: 62px;
+
+    img {
+      height: 138px;
+      width: 138px;
+    }
+  }
+
+  h2 {
+    width: 300px;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 1000px) {
+  #icons {
+    flex-direction: column;
+    align-items: center;
+
+    .icons__item {
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+    picture {
+      margin: 0 20px 0 0;
+    }
+  }
+}
