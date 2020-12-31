@@ -41,7 +41,6 @@
 }
 @media (max-width: $lg) {
   .header {
-
     .slot {
       margin: 38px 0;
     }
@@ -50,7 +49,6 @@
 
 @media (max-width: $md) {
   .header {
-
     h1 {
       margin-bottom: 38px;
       font-size: 34px;
@@ -94,12 +92,12 @@
   @media (max-width: $xxs) {
     font-size: 0.5rem;
   }
-  border: 13px solid $green3;
+  font-size: 1rem;
   line-height: 1;
   width: 33.5em;
   height: 33.5em;
   user-select: none;
-  font-size: 1rem;
+  border: 0.8125rem solid $green3;
   margin-right: 1.5rem;
   align-items: center;
   justify-content: center;
@@ -118,8 +116,13 @@
   }
   h3 {
     font-weight: 300;
-    font-size: 8.5em;
+    font-size: 9em;
     line-height: 0.95;
     margin: 0;
+
+    sup {
+      font-weight: 500;
+      font-size: 0.5em;
+    }
   }
 }

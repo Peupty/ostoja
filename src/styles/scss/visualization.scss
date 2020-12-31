@@ -77,6 +77,11 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
 
+  .c {
+    justify-content: space-between;
+    align-items: end;
+  }
+
   .d {
     grid-column: 1 / span 2;
   }
@@ -151,16 +156,15 @@
         }
       }
       h1 {
+        margin-top: 1.5rem;
         font-size: 2.9rem;
       }
     }
     .d {
-      margin-bottom: 0;
-    }
-
-    & > h1 {
-      margin-top: 34px;
+      margin-bottom: 3.5rem;
+      margin-top: 7.5rem;
       font-size: 34px;
+
       br {
         display: block;
       }
@@ -176,15 +180,17 @@
 @media (max-width: $xxs) {
   #wizualizacja {
     place-items: start;
+    padding-bottom: 0.5rem;
 
     .c {
-      justify-self: start;
+      justify-self: flex-start;
     }
     .seg-logo {
       width: 160px;
     }
 
-    & > h1 {
+    .d {
+      margin: 1rem auto;
       font-size: 17px;
 
       span {

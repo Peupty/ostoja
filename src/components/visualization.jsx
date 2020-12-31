@@ -14,7 +14,7 @@ const Visualisation = () => {
           Buduj z nami <br /> <span>swoją przyszłość</span>
         </h1>
       </div>
-      <div className="col j-sb c">
+      <div className="col c">
         <picture className="seg-logo">
           <img src="../../logo_segments.png" alt="" />
         </picture>

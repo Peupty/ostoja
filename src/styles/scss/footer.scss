@@ -45,6 +45,13 @@ footer {
     flex-direction: row;
     justify-content: space-between;
 
+    .socials {
+      a {
+        margin-right: 0;
+        margin-left: 2rem;
+      }
+    }
+
     & > div {
       width: fit-content;
     }
