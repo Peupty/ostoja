@@ -3,6 +3,9 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 import Logo from "@/components/logo"
 
 const links = ["informacje", "galeria", "kontakt"]
+const fbLink = "https://www.facebook.com/mbnmazury"
+const igLink =
+  "https://instagram.com/mbn_nieruchomosci_mazury?igshid=11xa49tgicdvj"
 
 const Navigation = () => {
   return (
@@ -23,12 +26,20 @@ const Navigation = () => {
             </li>
           ))}
         </ul>
-        <div className="js-end md--show socials">
-          <a href="">
-            <img src="../../fb_icon.svg" alt="fb" className="socials__icon" />
+        <div className="js-end md--show navigation__socials">
+          <a href={fbLink}>
+            <img
+              src="../../fb_icon.svg"
+              alt="fb"
+              className="navigation__icon"
+            />
           </a>
-          <a href="">
-            <img src="../../ig_icon.svg" alt="ig" className="socials__icon" />
+          <a href={igLink}>
+            <img
+              src="../../ig_icon.svg"
+              alt="ig"
+              className="navigation__icon"
+            />
           </a>
         </div>
       </div>

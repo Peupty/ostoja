@@ -15,6 +15,7 @@ export default class Gallery extends React.Component {
           items={pictures}
           showThumbnails={false}
           showIndex={true}
+          autoPlay={true}
         ></ImageGallery>
       </section>
     )

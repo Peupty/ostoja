@@ -1,0 +1,114 @@
+#plot-picker {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+
+  picture {
+    display: flex;
+    position: relative;
+    margin-bottom: 76px;
+  }
+
+  @media (max-width: $md) {
+    width: 100%;
+    padding: 38px 0;
+
+    picture {
+      margin-bottom: 38px;
+      width: 100%;
+      height: auto;
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+.plot-list {
+  @media (max-width: $md) {
+    padding: 0 1.5rem;
+    font-size: 14px;
+  }
+  @media (max-width: 1140px) {
+    grid-template-columns: 1fr;
+    color: $blue;
+  }
+  @media (max-width: $xs) {
+    font-size: 12px;
+  }
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  width: 100%;
+}
+
+#popup {
+  @media (max-width: $sm) {
+    left: 20px;
+    bottom: 20px;
+  }
+  position: absolute;
+  bottom: 30px;
+  left: -10px;
+  background: #fff;
+  z-index: 20;
+  padding: 2rem;
+  width: 300px;
+  box-shadow: 1px 1px 5px #5f5f5f;
+}
+
+.asd {
+  background-color: $green;
+}
+
+.plot {
+  cursor: pointer;
+  fill: none;
+  stroke-width: 4;
+  pointer-events: all;
+
+  &--sold {
+    stroke: $red;
+
+    &:hover {
+      fill: $red;
+    }
+  }
+
+  &--available {
+    stroke: $green;
+
+    &:hover {
+      fill: $green;
+    }
+  }
+
+  &--active {
+    fill: $blue;
+    animation: highlight-plot 2s ease-in-out infinite;
+  }
+}
+
+.plot-area {
+  @media (max-width: $md) {
+    display: none;
+  }
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+@keyframes highlight-plot {
+  0% {
+    fill: $blue;
+  }
+  50% {
+    fill: $green3;
+  }
+  100% {
+    fill: $blue;
+  }
+}

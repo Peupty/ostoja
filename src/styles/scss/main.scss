@@ -20,153 +20,39 @@ body {
 }
 
 #informacje {
-  padding-top: 6.25rem;
+  @media (max-width: $md) {
+    padding-top: 38px;
+  }
+  padding-top: 16.25rem;
   position: relative;
 }
 
-.header {
-  margin-top: 10rem;
-  width: 100%;
-  color: $blue;
-  user-select: none;
-  align-items: center;
-  justify-content: space-between;
-
-  &__wrapper {
-    max-width: 42.125rem;
-
-    h1 {
-      font-size: 3.125rem;
-      margin-bottom: 2.625rem;
-    }
-    p {
-      font-size: 1.3125rem;
-    }
-  }
-
-  .slot {
-    @media (max-width: 1200px) {
-      margin-bottom: 2.625rem;
-    }
-  }
-}
-
-#price {
-  border: 13px solid $green3;
-  line-height: 1;
-  width: 536px;
-  height: 536px;
-  user-select: none;
-
-  h1 {
-    font-weight: 500;
-    font-size: 140px;
-    line-height: 1;
-  }
-  h2 {
-    font-size: 11.75rem;
-    font-weight: 900;
-    line-height: 0.65;
-  }
-  h3 {
-    font-weight: 300;
-    font-size: 136px;
-    line-height: 0.95;
-  }
-}
-
-#plot-picker {
-  padding-top: 10rem;
-  padding-bottom: 10rem;
-
-  picture {
-    display: flex;
-    position: relative;
-  }
-
-  img {
-    margin-bottom: 76px;
-  }
-}
-
-#popup {
-  position: absolute;
-  display: flex;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fff;
-  z-index: 20;
-  padding: 2rem;
-  border-radius: 1rem;
-  visibility: hidden;
-}
-
-#wizualizacja {
-  padding-top: 12.25rem;
-
-  div.col.j-sb {
-    max-height: 45rem;
-
-    &:nth-of-type(2) {
-      picture {
-        margin-bottom: 20px;
-      }
-      h1 {
-        font-weight: 800;
-        font-size: 3.875rem;
-        line-height: 1.3;
-      }
-      span {
-        font-size: 3.0625rem;
-        font-weight: 600;
-      }
-    }
-  }
-
-  & > h1 {
-    margin: 11.5rem auto;
-    font-size: 3.125rem;
-    font-weight: 600;
-  }
-}
-
-#kontakt {
-  font-size: 1.3125rem;
-  h1 {
-    font-size: 3.75rem;
-    margin-bottom: 3.25rem;
-  }
-  address {
-    font-style: normal;
-  }
-  a {
-    // text-decoration: none;
-    color: #000;
-    &:hover {
-      color: $green;
-    }
-  }
-  iframe {
-    width: 51rem;
-    height: 37rem;
-  }
-}
-
 .google-map {
+  @media (max-width: $lg) {
+    height: 680px;
+    margin: 8rem 0;
+  }
   @media (max-width: $md) {
+    height: 560px;
+    margin: 38px 0;
+  }
+  @media (max-width: $sm) {
     width: 100vw;
+    padding: 0;
+  }
+  @media (max-width: $xs) {
+    height: 85vh;
   }
   width: 100%;
   height: 814px;
   margin: 10rem 0;
 }
 
-.asd {
-  background-color: $green;
-}
-
+@import "./header.scss";
 @import "./heading.scss";
 @import "./icons.scss";
+@import "./plot-picker.scss";
 @import "./gallery.scss";
+@import "./visualization.scss";
+@import "./contact.scss";
 @import "./footer.scss";

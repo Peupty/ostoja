@@ -15,10 +15,10 @@ const Header = ({
     >
       <div className="header__wrapper">
         <h1>{title}</h1>
-        {slotInside && <div className="md--show slot">{slot}</div>}
+        {slotInside && <div className="sm--show slot">{slot}</div>}
         <p dangerouslySetInnerHTML={{ __html: paragraph }}></p>
       </div>
-      <div className={`${slotInside ? "md--hide" : ""} slot`}>{slot}</div>
+      <div className={`slot${slotInside ? " sm--hide" : ""}`}>{slot}</div>
     </header>
   )
 }

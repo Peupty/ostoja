@@ -1,23 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import plotsJSON from "@/content/plots"
 
-const showPopup = ({ clientX: x, clientY: y }, el) => {
-  const popupElement = document.createElement("div")
-  const popupContainer = document.querySelector("#popup")
-  popupElement.className = "popup__content"
-  popupElement.innerText = `Cena działki nr ${el.id} - ${el.price} zł`
-  popupContainer.top = y
-  popupContainer.left = x
-  popupContainer.style.visibility = "visible"
-  document.querySelector(`#dzialka-${el.id}`).className = "asd"
-  popupContainer.appendChild(popupElement)
-}
+const sold = [533, 534, 536, 543, 544, 545, 552]
 
-const hidePopup = el => {
-  document.querySelector(`#dzialka-${el.id}`).className = ""
-  document.querySelector("#popup").style.visibility = "hidden"
-  document.querySelector(".popup__content").remove()
-}
+const plots = plotsJSON.map(el => {
+  if (sold.includes(el.id)) {
+    el.price = 0
+  }
+  return el
+})
 
 const col_1 = plotsJSON.slice(0, plotsJSON.length / 2 + (plotsJSON.length % 2))
 const col_2 = plotsJSON.slice(
@@ -25,13 +16,63 @@ const col_2 = plotsJSON.slice(
 )
 
 const PlotPicker = () => {
+  const defaultPlot = {
+    price: 0,
+    area: 0,
+    id: 0,
+  }
+  const [plot, setPlot] = useState(defaultPlot)
+
   return (
-    <section id="plot-picker" className="gutters">
+    <section id="plot-picker" className="gutters col a-center">
       <picture>
-        <img src="../../działki.png" alt="" useMap="#plot-map" />
-        <div id="popup"></div>
+        <img src="../../działki.png" alt="" />
+        {plot.id > 0 && (
+          <div id="popup" className="col text--blue">
+            <h3>Działka nr {plot.id}</h3>
+            <div className="row j-sb">
+              <div className="col">
+                <h4>Powierzchnia</h4>
+                <h5
+                  dangerouslySetInnerHTML={{
+                    __html: plot.area + "m<sup>2</sup>",
+                  }}
+                ></h5>
+              </div>
+              <div className="col">
+                <h4>Cena</h4>
+                <h5>{plot.price ? plot.price + " zł" : "sprzedano"}</h5>
+              </div>
+            </div>
+          </div>
+        )}
+        <svg
+          className="plot-area"
+          height="100%"
+          width="100%"
+          onClick={e => {
+            setPlot(defaultPlot)
+          }}
+        >
+          <g>
+            {plots.map(el => (
+              <polygon
+                key={el.id}
+                id={`plot-marker-${el.id}`}
+                className={`plot ${
+                  el.price ? "plot--available" : "plot--sold"
+                } ${plot.id === el.id ? "plot--active" : ""}`}
+                points={el.coords}
+                onClick={e => {
+                  e.stopPropagation()
+                  setPlot({ ...el })
+                }}
+              ></polygon>
+            ))}
+          </g>
+        </svg>
       </picture>
-      <map name="plot-map">
+      {/* <map name="plot-map">
         {plotsJSON.map(el => (
           <area
             key={el.id}
@@ -40,20 +81,22 @@ const PlotPicker = () => {
             title={el.id}
             alt={`Działka nr ${el.id}`}
             onClick={() => alert(el.price)}
-            onMouseEnter={e => showPopup(e, el)}
-            onMouseLeave={() => hidePopup(el)}
           />
         ))}
-      </map>
-      <ul className="row j-sa">
+      </map> */}
+      <div className="plot-list">
         <li>
-          <ul>
+          <ul className="col a-start">
             {col_1.map(el => (
               <li
                 key={el.id}
                 id={`dzialka-${el.id}`}
                 dangerouslySetInnerHTML={{
-                  __html: `Działka nr ${el.id} - powierzchnia ${el.area} m<sup>2</sup> - cena za 1m2: 27zł - wartość: ${el.price}`,
+                  __html: `Działka nr ${el.id} - powierzchnia ${
+                    el.area
+                  } m<sup>2</sup> - cena za 1m2: 27zł - wartość: ${
+                    el.area * 27
+                  }`,
                 }}
               ></li>
             ))}
@@ -62,14 +105,15 @@ const PlotPicker = () => {
         <li>
           <ul>
             {col_2.map(el => (
-              <li
-                key={el.id}
-                id={`dzialka-${el.id}`}
-              >{`Działka nr ${el.id} - powierzchnia ${el.area} m2 - cena za 1m2: 27zł - wartość: ${el.price}`}</li>
+              <li key={el.id} id={`dzialka-${el.id}`}>{`Działka nr ${
+                el.id
+              } - powierzchnia ${el.area} m2 - cena za 1m2: 27zł - wartość: ${
+                el.area * 27
+              }`}</li>
             ))}
           </ul>
         </li>
-      </ul>
+      </div>
     </section>
   )
 }

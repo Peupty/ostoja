@@ -15,7 +15,7 @@ const IndexPage = () => (
     <Heading></Heading>
     <Info></Info>
     <PlotPicker></PlotPicker>
-    {/* <Gallery></Gallery> */}
+    <Gallery></Gallery>
     <Visualization></Visualization>
     <Contact></Contact>
     <Footer></Footer>

@@ -5,6 +5,7 @@
   --blue: #004358;
   --orange: #fd7400;
   --orange2: #f18519;
+  --red: #d91a1a;
 }
 
 $green: var(--green);
@@ -13,8 +14,11 @@ $green3: var(--green3);
 $blue: var(--blue);
 $orange: var(--orange);
 $orange2: var(--orange2);
+$red: var(--red);
 
+$xl: 1800px;
 $lg: 1600px;
-$md: 1200px;
-$sm: 750px;
-$xs: 450px;
+$md: 1400px;
+$sm: 1200px;
+$xs: 800px;
+$xxs: 460px;

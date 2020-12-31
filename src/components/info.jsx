@@ -31,7 +31,7 @@ const Info = () => {
         {...headersJSON[2]}
         reverse={true}
         slot={
-          <div id="price" className="col a-center j-center">
+          <div id="price" className="col">
             <h1>TYLKO</h1>
             <h2 className="text--orange">27 zł</h2>
             <h3>
@@ -39,6 +39,7 @@ const Info = () => {
             </h3>
           </div>
         }
+        slotInside={true}
       ></Header>
     </section>
   )

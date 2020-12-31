@@ -1,0 +1,125 @@
+.header {
+  // margin-bottom: 10rem;
+  width: 100%;
+  color: $blue;
+  user-select: none;
+  align-items: center;
+  justify-content: space-between;
+
+  &__wrapper {
+    max-width: 42.125rem;
+
+    h1 {
+      font-size: 3.125rem;
+      margin-bottom: 2.625rem;
+    }
+    p {
+      font-size: 1.3125em;
+    }
+  }
+
+  .slot {
+    picture {
+      display: flex;
+      max-width: 536px;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: $xl) {
+  .header {
+    justify-content: space-around;
+
+    .slot {
+      margin-top: 38px;
+    }
+  }
+}
+@media (max-width: $lg) {
+  .header {
+
+    .slot {
+      margin: 38px 0;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .header {
+
+    h1 {
+      margin-bottom: 38px;
+      font-size: 34px;
+    }
+    p {
+      font-size: 17px;
+    }
+
+    .slot {
+      margin-bottom: 2.625rem;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .header {
+    h1 {
+      font-size: 30px;
+    }
+    p {
+      font-size: 14px;
+    }
+
+    .slot {
+      margin-bottom: 2.625rem;
+    }
+  }
+}
+
+#price.col {
+  @media (max-width: $lg) {
+    font-size: 0.8rem;
+  }
+  @media (max-width: $md) {
+    font-size: 0.7rem;
+  }
+  @media (max-width: $xs) {
+    font-size: 0.6rem;
+    margin: 0 auto 0 0;
+  }
+  @media (max-width: $xxs) {
+    font-size: 0.5rem;
+  }
+  border: 13px solid $green3;
+  line-height: 1;
+  width: 33.5em;
+  height: 33.5em;
+  user-select: none;
+  font-size: 1rem;
+  margin-right: 1.5rem;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-weight: 500;
+    font-size: 8.75em;
+    line-height: 1;
+    margin: 0;
+  }
+  h2 {
+    font-size: 11.75em;
+    font-weight: 900;
+    line-height: 0.65;
+    margin: 0;
+  }
+  h3 {
+    font-weight: 300;
+    font-size: 8.5em;
+    line-height: 0.95;
+    margin: 0;
+  }
+}

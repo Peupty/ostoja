@@ -3,7 +3,10 @@
   max-height: none;
 }
 .image-gallery-content .image-gallery-slide .image-gallery-image {
-  height: 49rem !important;
+  @media (max-width: $md) {
+    height: 61vw;
+  }
+  height: 49rem;
   width: 100%;
   object-fit: cover;
   object-position: 50% 70%;
@@ -24,11 +27,28 @@
   h1 {
     font-size: 50px;
     font-weight: 700;
-    margin-left: 278px;
+    margin-left: 17.375rem;
     margin-top: 36px;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 1;
+  }
+
+  @media (max-width: $md) {
+    h1 {
+      margin-left: 3rem;
+      font-size: 36px;
+    }
+  }
+  @media (max-width: $sm) {
+    h1 {
+      margin-left: 1.5rem;
+    }
+  }
+  @media (max-width: $xs) {
+    h1 {
+      font-size: 20px;
+    }
   }
 }

@@ -1,0 +1,80 @@
+#kontakt {
+  font-size: 1.3125rem;
+
+  h1 {
+    font-size: 3.75rem;
+    margin-bottom: 3.25rem;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  a {
+    color: #000;
+
+    &:hover {
+      color: $green;
+    }
+  }
+
+  iframe {
+    width: 51rem;
+    height: 37rem;
+  }
+}
+
+@media (max-width: $md) {
+  #kontakt {
+    justify-content: space-around;
+    iframe {
+      height: 40vw;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin: 28px 0;
+    }
+
+    address,
+    a {
+      font-size: 19px;
+      color: $blue;
+    }
+  }
+}
+@media (max-width: 1000px) {
+  #kontakt {
+    flex-direction: column-reverse;
+    margin-bottom: 28px;
+
+    h1 {
+      font-size: 36px;
+      margin: 28px 0;
+    }
+
+    address,
+    a {
+      font-size: 17px;
+    }
+
+    iframe {
+      padding: 0;
+      width: 100%;
+      height: 70vw;
+    }
+  }
+}
+
+@media (max-width: $xxs) {
+  #kontakt {
+    h1 {
+      font-size: 30px;
+    }
+
+    address,
+    a {
+      font-size: 14px;
+    }
+  }
+}
