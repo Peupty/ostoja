@@ -15,6 +15,14 @@ const col_2 = plotsJSON.slice(
   plotsJSON.length - col_1.length + (plotsJSON.length % 2)
 )
 
+const scaleOverlay = (coords, currentWidth, originalWidth) =>
+  currentWidth < originalWidth
+    ? coords
+        .split(",")
+        .map(el => parseInt(+el * (currentWidth / originalWidth)))
+        .join(",")
+    : coords
+
 const PlotPicker = () => {
   const defaultPlot = {
     price: 0,
@@ -22,6 +30,9 @@ const PlotPicker = () => {
     id: 0,
   }
   const [plot, setPlot] = useState(defaultPlot)
+  const [width, setWidth] = useState(window.innerWidth)
+
+  window.addEventListener("resize", () => setWidth(window.innerWidth))
 
   return (
     <section id="plot-picker" className="gutters col a-center">
@@ -62,7 +73,7 @@ const PlotPicker = () => {
                 className={`plot ${
                   el.price ? "plot--available" : "plot--sold"
                 } ${plot.id === el.id ? "plot--active" : ""}`}
-                points={el.coords}
+                points={scaleOverlay(el.coords, width, 1364)}
                 onClick={e => {
                   e.stopPropagation()
                   setPlot({ ...el })
@@ -72,18 +83,6 @@ const PlotPicker = () => {
           </g>
         </svg>
       </picture>
-      {/* <map name="plot-map">
-        {plotsJSON.map(el => (
-          <area
-            key={el.id}
-            coords={el.coords}
-            shape="poly"
-            title={el.id}
-            alt={`Działka nr ${el.id}`}
-            onClick={() => alert(el.price)}
-          />
-        ))}
-      </map> */}
       <div className="plot-list">
         <li>
           <ul className="col a-start">

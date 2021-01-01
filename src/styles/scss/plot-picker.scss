@@ -88,12 +88,13 @@
     fill: $blue;
     animation: highlight-plot 2s ease-in-out infinite;
   }
+
+  @media (max-width: $xs) {
+    stroke-width: 2;
+  }
 }
 
 .plot-area {
-  @media (max-width: $md) {
-    display: none;
-  }
   position: absolute;
   display: flex;
   top: 0;
