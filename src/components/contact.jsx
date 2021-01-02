@@ -15,6 +15,7 @@ const Contact = () => {
         </address>
       </div>
       <iframe
+        title="film promocyjny"
         src="https://www.youtube.com/embed/s1X5ZYMLmps"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
