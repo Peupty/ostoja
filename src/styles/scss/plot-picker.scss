@@ -40,7 +40,6 @@
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   width: 100%;
-  column-count: 2;
 
   &__item {
     cursor: pointer;
@@ -70,7 +69,7 @@
   bottom: 30px;
   left: -10px;
   background: #fff;
-  z-index: 20;
+  z-index: 0;
   padding: 2rem;
   width: 300px;
   box-shadow: 0 0 5px #5f5f5f;
@@ -113,7 +112,7 @@
   display: flex;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 0;
 }
 
 @keyframes highlight-plot {
