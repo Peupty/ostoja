@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import plotsJSON from "@/content/plots"
 
 const sold = [533, 534, 536, 543, 544, 545, 552]
@@ -29,9 +29,12 @@ const PlotPicker = () => {
     id: 0,
   }
   const [plot, setPlot] = useState(defaultPlot)
-  const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState(0)
 
-  window.addEventListener("resize", () => setWidth(window.innerWidth))
+  useEffect(() => {
+    setWidth(window.innerWidth)
+    window.addEventListener("resize", () => setWidth(window.innerWidth))
+  }, [])
 
   return (
     <section id="plot-picker" className="gutters col a-center">
