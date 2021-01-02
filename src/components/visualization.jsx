@@ -6,7 +6,7 @@ const Visualisation = () => {
       <div className="k">
         <picture>
           <img
-            src="../../dom_2.png"
+            src="../../images/dom_2.png"
             alt="drewniany dom z huśtawką, widok z lewej strony"
           />
         </picture>
@@ -16,11 +16,11 @@ const Visualisation = () => {
       </div>
       <div className="col c">
         <picture className="seg-logo">
-          <img src="../../logo_segments.png" alt="" />
+          <img src="../../images/logo_segments.png" alt="" />
         </picture>
         <picture className="md--hide">
           <img
-            src="../../dom_1.png"
+            src="../../images/dom_1.png"
             alt="drewniany dom z huśtawką, widok z prawej strony"
           />
         </picture>

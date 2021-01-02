@@ -11,7 +11,7 @@ const Navigation = () => {
   return (
     <nav className="navigation">
       <picture className="navigation__button md--show">
-        <img src="../../menu_icon.svg" alt="MENU" />
+        <img src="../../images/menu_icon.svg" alt="MENU" />
       </picture>
       <div className="navigation__actions">
         <ul className="row md--col">
@@ -29,14 +29,14 @@ const Navigation = () => {
         <div className="js-end md--show navigation__socials">
           <a href={fbLink}>
             <img
-              src="../../fb_icon.svg"
+              src="../../images/fb_icon.svg"
               alt="fb"
               className="navigation__icon"
             />
           </a>
           <a href={igLink}>
             <img
-              src="../../ig_icon.svg"
+              src="../../images/ig_icon.svg"
               alt="ig"
               className="navigation__icon"
             />

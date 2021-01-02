@@ -3,7 +3,7 @@ import ImageGallery from "react-image-gallery"
 import images from "@/content/gallery.json"
 
 const pictures = images.map(img => ({
-  original: "/galeria/" + img,
+  original: "/images/galeria/" + img,
 }))
 
 export default class Gallery extends React.Component {

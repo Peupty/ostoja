@@ -40,7 +40,7 @@ const PlotPicker = () => {
     <section id="plot-picker" className="gutters col a-center">
       <div className="col relative">
         <picture>
-          <img src="../../działki.png" alt="" />
+          <img src="../../images/działki.png" alt="" />
           <svg
             className="plot-area"
             height="100%"

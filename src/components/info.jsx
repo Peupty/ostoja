@@ -11,7 +11,7 @@ const Info = () => {
         {...headersJSON[0]}
         slot={
           <picture>
-            <img src="../../header_1.png" alt="" />
+            <img src="../../images/header_1.png" alt="" />
           </picture>
         }
         slotInside={true}
@@ -21,7 +21,7 @@ const Info = () => {
         {...headersJSON[1]}
         slot={
           <picture>
-            <img src="../../header_2.png" alt="" />
+            <img src="../../images/header_2.png" alt="" />
           </picture>
         }
         slotInside={true}

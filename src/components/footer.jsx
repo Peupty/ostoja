@@ -15,7 +15,7 @@ const Footer = () => {
           <li>
             <a href="https://www.facebook.com/mbnmazury" className="flex">
               <img
-                src="../../fb_icon.svg"
+                src="../../images/fb_icon.svg"
                 height="24px"
                 alt="fb icon"
                 className="md--show"
@@ -29,7 +29,7 @@ const Footer = () => {
               className="flex"
             >
               <img
-                src="../../ig_icon.svg"
+                src="../../images/ig_icon.svg"
                 height="24px"
                 alt="ig icon"
                 className="row md--show"
