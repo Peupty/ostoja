@@ -4,7 +4,6 @@
 
   picture {
     display: flex;
-    position: relative;
     margin-bottom: 76px;
   }
 
@@ -41,12 +40,31 @@
   grid-template-columns: 1fr 1fr;
   justify-items: center;
   width: 100%;
+  column-count: 2;
+
+  &__item {
+    cursor: pointer;
+
+    &:hover,
+    &--active {
+      background: $blue;
+      color: #fff;
+    }
+  }
 }
 
 #popup {
   @media (max-width: $sm) {
     left: 20px;
     bottom: 20px;
+  }
+  @media (max-width: $xs) {
+    position: initial;
+    margin: 0 auto 2rem auto;
+    width: 100%;
+    box-shadow: none;
+    border-top: 1px solid $blue;
+    border-bottom: 1px solid $blue;
   }
   position: absolute;
   bottom: 30px;
@@ -55,11 +73,7 @@
   z-index: 20;
   padding: 2rem;
   width: 300px;
-  box-shadow: 1px 1px 5px #5f5f5f;
-}
-
-.asd {
-  background-color: $green;
+  box-shadow: 0 0 5px #5f5f5f;
 }
 
 .plot {

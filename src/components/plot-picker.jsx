@@ -4,9 +4,8 @@ import plotsJSON from "@/content/plots"
 const sold = [533, 534, 536, 543, 544, 545, 552]
 
 const plots = plotsJSON.map(el => {
-  if (sold.includes(el.id)) {
-    el.price = 0
-  }
+  if (sold.includes(el.id)) el.price = 0
+
   return el
 })
 
@@ -36,8 +35,35 @@ const PlotPicker = () => {
 
   return (
     <section id="plot-picker" className="gutters col a-center">
-      <picture>
-        <img src="../../działki.png" alt="" />
+      <div className="col relative">
+        <picture>
+          <img src="../../działki.png" alt="" />
+          <svg
+            className="plot-area"
+            height="100%"
+            width="100%"
+            onClick={e => {
+              setPlot(defaultPlot)
+            }}
+          >
+            <g>
+              {plots.map(el => (
+                <polygon
+                  key={el.id}
+                  id={`plot-marker-${el.id}`}
+                  className={`plot ${
+                    el.price ? "plot--available" : "plot--sold"
+                  } ${plot.id === el.id ? "plot--active" : ""}`}
+                  points={scaleOverlay(el.coords, width, 1364)}
+                  onClick={e => {
+                    e.stopPropagation()
+                    setPlot({ ...el })
+                  }}
+                ></polygon>
+              ))}
+            </g>
+          </svg>
+        </picture>
         {plot.id > 0 && (
           <div id="popup" className="col text--blue">
             <h3>Działka nr {plot.id}</h3>
@@ -57,32 +83,7 @@ const PlotPicker = () => {
             </div>
           </div>
         )}
-        <svg
-          className="plot-area"
-          height="100%"
-          width="100%"
-          onClick={e => {
-            setPlot(defaultPlot)
-          }}
-        >
-          <g>
-            {plots.map(el => (
-              <polygon
-                key={el.id}
-                id={`plot-marker-${el.id}`}
-                className={`plot ${
-                  el.price ? "plot--available" : "plot--sold"
-                } ${plot.id === el.id ? "plot--active" : ""}`}
-                points={scaleOverlay(el.coords, width, 1364)}
-                onClick={e => {
-                  e.stopPropagation()
-                  setPlot({ ...el })
-                }}
-              ></polygon>
-            ))}
-          </g>
-        </svg>
-      </picture>
+      </div>
       <div className="plot-list">
         <li>
           <ul className="col a-start">
@@ -90,10 +91,14 @@ const PlotPicker = () => {
               <li
                 key={el.id}
                 id={`dzialka-${el.id}`}
+                className={`plot-list__item ${
+                  el.id === plot.id ? "plot-list__item--active" : ""
+                }`}
+                onClick={() => setPlot({ ...el })}
                 dangerouslySetInnerHTML={{
                   __html: `Działka nr ${el.id} - powierzchnia ${
                     el.area
-                  } m<sup>2</sup> - cena za 1m2: 27zł - wartość: ${
+                  } m<sup>2</sup> - cena za 1m<sup>2</sup>: 27zł - wartość: ${
                     el.area * 27
                   }`,
                 }}
@@ -104,11 +109,21 @@ const PlotPicker = () => {
         <li>
           <ul>
             {col_2.map(el => (
-              <li key={el.id} id={`dzialka-${el.id}`}>{`Działka nr ${
-                el.id
-              } - powierzchnia ${el.area} m2 - cena za 1m2: 27zł - wartość: ${
-                el.area * 27
-              }`}</li>
+              <li
+                key={el.id}
+                id={`dzialka-${el.id}`}
+                className={`plot-list__item ${
+                  el.id === plot.id ? "plot-list__item--active" : ""
+                }`}
+                onClick={() => setPlot({ ...el })}
+                dangerouslySetInnerHTML={{
+                  __html: `Działka nr ${el.id} - powierzchnia ${
+                    el.area
+                  } m<sup>2</sup> - cena za 1m2: 27zł - wartość: ${
+                    el.area * 27
+                  }`,
+                }}
+              ></li>
             ))}
           </ul>
         </li>

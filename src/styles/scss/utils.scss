@@ -24,6 +24,10 @@ $gutters-sm: 1.5rem;
   padding-left: $gutters-xxl;
   padding-right: $gutters-xxl;
 }
+
+.relative {
+  position: relative;
+}
 .flex {
   display: flex;
 }
