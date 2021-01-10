@@ -40,7 +40,13 @@ module.exports = {
     {
       resolve: "gatsby-plugin-anchor-links",
       options: {
-        duration: "1500",
+        duration: "500",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: "321691665754943",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
