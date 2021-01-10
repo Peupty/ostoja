@@ -14,13 +14,14 @@ const col_2 = plotsJSON.slice(
   plotsJSON.length - col_1.length + (plotsJSON.length % 2)
 )
 
+const onResize = setWidth => () =>
+  setWidth(document.querySelector(".plot-picker__image").clientWidth)
+
 const scaleOverlay = (coords, currentWidth, originalWidth) =>
-  currentWidth < originalWidth
-    ? coords
-        .split(",")
-        .map(el => parseInt(+el * (currentWidth / originalWidth)))
-        .join(",")
-    : coords
+  coords
+    .split(",")
+    .map(el => parseInt(+el * (currentWidth / originalWidth)))
+    .join(",")
 
 const PlotPicker = () => {
   const defaultPlot = {
@@ -32,19 +33,29 @@ const PlotPicker = () => {
   const [width, setWidth] = useState(0)
 
   useEffect(() => {
-    setWidth(window.innerWidth)
-    window.addEventListener("resize", () => setWidth(window.innerWidth))
+    onResize(setWidth)
+
+    window.addEventListener("resize", onResize(setWidth))
+
+    return function cleanup() {
+      window.removeEventListener("resize", onResize(setWidth))
+    }
   }, [])
 
   return (
-    <section id="plot-picker" className="gutters col a-center">
+    <section id="plot-picker" className="gutters col a-center plot-picker">
       <div className="col relative">
         <picture>
-          <img src="../../images/działki.png" alt="" />
+          <img
+            src="../../images/działki.webp"
+            alt="działki z numerami"
+            className="plot-picker__image"
+            loading="lazy"
+          />
           <svg
             className="plot-area"
-            height="100%"
             width="100%"
+            height="100%"
             onClick={e => {
               setPlot(defaultPlot)
             }}
@@ -88,48 +99,42 @@ const PlotPicker = () => {
         )}
       </div>
       <div className="plot-list">
-        <li>
-          <ul className="col a-start">
-            {col_1.map(el => (
-              <li
-                key={el.id}
-                id={`dzialka-${el.id}`}
-                className={`plot-list__item ${
-                  el.id === plot.id ? "plot-list__item--active" : ""
-                }`}
-                onClick={() => setPlot({ ...el })}
-                dangerouslySetInnerHTML={{
-                  __html: `Działka nr ${el.id} - powierzchnia ${
-                    el.area
-                  } m<sup>2</sup> - cena za 1m<sup>2</sup>: 27zł - wartość: ${
-                    el.area * 27
-                  }`,
-                }}
-              ></li>
-            ))}
-          </ul>
-        </li>
-        <li>
-          <ul>
-            {col_2.map(el => (
-              <li
-                key={el.id}
-                id={`dzialka-${el.id}`}
-                className={`plot-list__item ${
-                  el.id === plot.id ? "plot-list__item--active" : ""
-                }`}
-                onClick={() => setPlot({ ...el })}
-                dangerouslySetInnerHTML={{
-                  __html: `Działka nr ${el.id} - powierzchnia ${
-                    el.area
-                  } m<sup>2</sup> - cena za 1m2: 27zł - wartość: ${
-                    el.area * 27
-                  }`,
-                }}
-              ></li>
-            ))}
-          </ul>
-        </li>
+        <ul className="col a-start">
+          {col_1.map(el => (
+            <li
+              key={el.id}
+              id={`dzialka-${el.id}`}
+              className={`plot-list__item ${
+                el.id === plot.id ? "plot-list__item--active" : ""
+              }`}
+              onClick={() => setPlot({ ...el })}
+              dangerouslySetInnerHTML={{
+                __html: `Działka nr ${el.id} - powierzchnia ${
+                  el.area
+                } m<sup>2</sup> - cena za 1m<sup>2</sup>: 27zł - wartość: ${
+                  el.area * 27
+                }`,
+              }}
+            ></li>
+          ))}
+        </ul>
+        <ul>
+          {col_2.map(el => (
+            <li
+              key={el.id}
+              id={`dzialka-${el.id}`}
+              className={`plot-list__item ${
+                el.id === plot.id ? "plot-list__item--active" : ""
+              }`}
+              onClick={() => setPlot({ ...el })}
+              dangerouslySetInnerHTML={{
+                __html: `Działka nr ${el.id} - powierzchnia ${
+                  el.area
+                } m<sup>2</sup> - cena za 1m2: 27zł - wartość: ${el.area * 27}`,
+              }}
+            ></li>
+          ))}
+        </ul>
       </div>
     </section>
   )
