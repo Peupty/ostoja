@@ -4,7 +4,7 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `Ostoja Bogacko`,
-    // description: ``,
+    description: `Działki do zabudowy na mazurach w pięknej lokalizacji.`,
     author: `Melville Watford`,
   },
   plugins: [
@@ -51,6 +51,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
