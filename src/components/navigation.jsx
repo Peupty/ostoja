@@ -18,13 +18,13 @@ const Navigation = () => {
           <li className="md--show">
             <Logo></Logo>
           </li>
-          {links.map(link => (
-            <li key={link}>
-              <AnchorLink className="navigation__link" to={"#" + link}>
-                {link.toUpperCase()}
-              </AnchorLink>
-            </li>
-          ))}
+            {links.map(link => (
+              <li key={link}>
+                <AnchorLink className="navigation__link" to={"/#" + link}>
+                  {link.toUpperCase()}
+                </AnchorLink>
+              </li>
+            ))}
         </ul>
         <div className="js-end md--show navigation__socials">
           <a href={fbLink}>
