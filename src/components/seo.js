@@ -73,9 +73,9 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `pl`,
   meta: [],
-  description: ``,
+  description: `Działki do zabudowy na mazurach w pięknej lokalizacji.`,
 }
 
 SEO.propTypes = {
