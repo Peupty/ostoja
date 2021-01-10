@@ -33,7 +33,7 @@ const PlotPicker = () => {
   const [width, setWidth] = useState(0)
 
   useEffect(() => {
-    onResize(setWidth)
+    setWidth(document.querySelector(".plot-picker__image").clientWidth)
 
     window.addEventListener("resize", onResize(setWidth))
 
