@@ -10,6 +10,7 @@ const GoogleMap = () => {
       allowFullScreen=""
       aria-hidden="false"
       tabIndex="0"
+      loading={"lazy"}
     ></iframe>
   )
 }
