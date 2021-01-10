@@ -23,12 +23,13 @@
 #galeria {
   z-index: 0;
   position: relative;
+  padding-top: 76px;
 
   h1 {
     font-size: 50px;
     font-weight: 700;
     margin-left: 17.375rem;
-    margin-top: 36px;
+    margin-top: 98px;
     position: absolute;
     top: 0;
     left: 0;
@@ -36,6 +37,8 @@
   }
 
   @media (max-width: $md) {
+    padding-top: 38px;
+
     h1 {
       margin-left: 3rem;
       font-size: 36px;

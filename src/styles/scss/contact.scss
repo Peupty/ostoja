@@ -1,5 +1,6 @@
 #kontakt {
   font-size: 1.3125rem;
+  padding-top: 76px;
 
   h1 {
     font-size: 3.75rem;
@@ -26,6 +27,7 @@
 
 @media (max-width: $md) {
   #kontakt {
+    padding-top: 0;
     justify-content: space-around;
 
     iframe {
